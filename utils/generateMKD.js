@@ -1,22 +1,24 @@
-function renderLicenseBadge(license, gHubUserName)
+function renderLicenseBadge(license, gHubUserName, projectName)
+{
+    return `![GitHub](https://img.shields.io/github/${license}/${gHubUserName}/${projectName}?style=plastic)`
+}
+
+function renderLicenseSection(license, ...args)
 {
     return ""
 }
 
 const buildRM = (projectName, description, installInstructions, usageInstructions, contributionGuidlines, testInstructions, license, gHubUserName, emailAddr) =>
 {
-    const lBadge;
-    const lLink; 
-    const lSection;
+    const lBadge, lSection;
     
-    if( license != "")
+    if( license != "none")
     {
-        lBadge = renderLicenseBadge(license, gHubUserName);
-        lLink = renderLicenseLink(license);
+        lBadge = renderLicenseBadge(license, gHubUserName, projectName);
         lSection = renderLicenseSection(license);
     }
 
-    return lBadge != "" ? lBadge : "" +   
+    return lBadge != "none" ? lBadge : "" +   
 
     `
     # ${projectName}
@@ -32,9 +34,9 @@ const buildRM = (projectName, description, installInstructions, usageInstruction
      - [Usage](#Usage)
      - [Contributing](#Contributing)
      - [Test](#Tests)
-     - [Questions](#Questions)
-     - [License](#License)
-    
+     - [Questions](#Questions)`+
+     license != "none" ? '- [License](#License)' : "" +
+     `    
      ## Installation
     
      ${installInstructions}
@@ -56,7 +58,7 @@ const buildRM = (projectName, description, installInstructions, usageInstruction
      Developed by: https://www.github.com/${gHubUserName}
      For other questions concerning this app contact me [here](mailto:${emailAddr})` +
     
-     license != "" ? lSection : "";
+     license != "none" ? lSection : "";
     
 
 }
