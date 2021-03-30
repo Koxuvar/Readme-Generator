@@ -20,10 +20,8 @@ const App = () =>
         }
         ) =>
             {
-                for(const key of arr)
-                {
-                    console.log(key);
-                }
+                const rmFile = gmkd.buildRM(projectName, description, installInstructions, usageInstructions, contributionGuidlines, testInstructions, license, gHubUserName, emailAddr);
+                
             })
 }
 
