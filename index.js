@@ -19,12 +19,12 @@ const App = () =>
             emailAddr
         }
         ) =>
-    {
-        for(const key of arr)
-        {
-            console.log(key);
-        }
-    })
+            {
+                for(const key of arr)
+                {
+                    console.log(key);
+                }
+            })
 }
 
 App();
