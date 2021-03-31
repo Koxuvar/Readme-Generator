@@ -34,9 +34,22 @@ const prompts =
     },
     {
         name: 'license',
-        type: 'input',
+        type: 'list',
         message: 'License:',
         default: 'MIT',
+        choices:[
+            'Apache-2.0',
+            'BSD-3.0',
+            'BSD-2.0',
+            'GPL-2.0',
+            'GPL-3.0',
+            'LGPL-3.0',
+            'MIT',
+            'MPL-2.0',
+            'CDDL-1.0',
+            'EPL-2.0',
+            'none'
+        ],
     },
     {
         name: 'gHubUserName',

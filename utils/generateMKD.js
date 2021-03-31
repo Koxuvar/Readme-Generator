@@ -1,16 +1,37 @@
+const lList = require('./licenseLocker');
+
 function renderLicenseBadge(license, gHubUserName, projectName)
 {
-    return `![GitHub](https://img.shields.io/github/${license}/${gHubUserName}/${projectName}?style=plastic)`
+    return license != "none" ? `![GitHub](https://img.shields.io/github/${license}/${gHubUserName}/${projectName}?style=plastic)` : "";
 }
 
-function renderLicenseSection(license, ...args)
+function renderLicenseSection(license, projectName)
 {
-    return ""
+    let licText = "";
+
+    lList.forEach(lic =>
+        {
+            if(lic.type === license)
+            {
+                licText = lic.text;
+            }
+        });
+
+    if(license == 'MIT' || license == 'Apache-2.0' || license == 'BSD-3-Clause' || license == 'BSD-2-Clause' || license == 'GPL-3.0' || license == 'GPL-2.0')
+    {
+        const year = new Date();
+        return  `Copyright ${year.getYear()} ${projectName}
+        ` + licText; 
+    }
+    else
+    {
+        return licText;
+    }
 }
 
 const buildRM = (projectName, description, installInstructions, usageInstructions, contributionGuidlines, testInstructions, license, gHubUserName, emailAddr) =>
 {
-    const lBadge, lSection;
+    let lBadge, lSection;
     
     if( license != "none")
     {
@@ -18,9 +39,7 @@ const buildRM = (projectName, description, installInstructions, usageInstruction
         lSection = renderLicenseSection(license);
     }
 
-    return lBadge != "none" ? lBadge : "" +   
-
-    `
+    return lBadge != "none" ? lBadge : "" +   `
     # ${projectName}
 
     ## Description
