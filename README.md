@@ -1,3 +1,5 @@
+![GitHub](https://img.shields.io/github/MIT/Koxuvar/Readme-Generator?style=plastic)
+
 # Readme-Generator
 
 ## Description
