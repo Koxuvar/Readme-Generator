@@ -38,6 +38,8 @@ Terminal application:
      - Github User Name:
      - Email Address:
 
+The resulting readme file will be created in a folder labeled `/output/YOURPROJECTNAME` in the root folder of this application
+
 A walkthrough video showing this process can be found [here](https://www.youtube.com/watch?v=AW8ShlKWoZo)
 
  ## Contributing
