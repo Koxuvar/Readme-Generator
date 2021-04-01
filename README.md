@@ -28,15 +28,15 @@ Terminal application:
   - ```node index.js``` in the root folder to start the program.
   -  Follow the on screen prompts to enter information about your project.
   -  Prompts:
-    - Project Name:
-    - Project Description:
-    - Installation Instructions: (npm i) 
-    - Usage Instructions:
-    - Contribution Guidlines:
-    - Test Instructions: (node test)
-    - License: -- a list of licenses will be displayed that the user can choose from
-    - Github User Name:
-    - Email Address:
+    * Project Name:
+    * Project Description:
+    * Installation Instructions: (npm i) 
+    * Usage Instructions:
+    * Contribution Guidlines:
+    * Test Instructions: (node test)
+    * License: -- a list of licenses will be displayed that the user can choose from
+    * Github User Name:
+    * Email Address:
 
 A walkthrough video showing this process can be found [here](https://www.youtube.com/watch?v=AW8ShlKWoZo)
 
