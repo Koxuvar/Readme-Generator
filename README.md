@@ -1,4 +1,4 @@
-![GitHub](https://img.shields.io/github/MIT/Koxuvar/Readme-Generator?style=plastic)
+![GitHub](https://img.shields.io/github/license/Koxuvar/Readme-Generator)
 
 # Readme-Generator
 
