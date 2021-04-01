@@ -1,8 +1,9 @@
 const fs = require('fs');
+const path = require('path');
 const inq = require('inquirer');
 const pmpts = require('./utils/prompts');
 const gmkd = require('./utils/generateMKD');
-const path = require('path');
+
 
 const App = () =>
 {
@@ -23,44 +24,38 @@ const App = () =>
             {
                 const rmFile = gmkd.buildRM(projectName, description, installInstructions, usageInstructions, contributionGuidlines, testInstructions, license, gHubUserName, emailAddr);
 
-                const foldName = projectName.split(' ').join('').trim();
-                
-                /* MAKE output folder if none exists */
-                if(!fs.existsSync(path.join(__dirname, 'output')))
-                {
-                    fs.mkdir(path.join(__dirname, 'output'));
-                }
+                const foldName = projectName.split(' ').join('_').trim();
+                const filePath = path.join(__dirname, `/output/${foldName}/`); 
 
                 /* Make folder named the project name if it doesnt already exist */
-                if(!fs.existsSync(path.join(__dirname + '/output/', `${foldName}`)))
+                fs.access(filePath, fs.constants.F_OK, (err) =>
                 {
-                    fs.mkdir(path.join(__dirname + '/output/', `${foldName}`), (err) =>
+                    if(err)
                     {
-                        if (err)
+                        fs.mkdir(filePath, (err) =>
                         {
-                            console.log(err);
-                        }
-                        else
-                        {
-                            console.log('Directory created successfully!')
-                        }
-                    });
-                }
-                
-                const filePath = `./output/${foldName}/README.md`; 
-                
-                /* Create file with the readme info returned from gmkd.buildRM */
-                fs.writeFile(filePath, rmFile, (err) =>
-                {
-                    if (err)
-                    {
-                        console.log(err);
+                            if (err)
+                            {
+                                console.log(err);
+                            }
+                            else
+                            {
+                                console.log('Directory created successfully!')
+                                fs.writeFile(`${filePath}/README.md`, rmFile, (err) =>
+                                {
+                                    if (err)
+                                    {
+                                        console.log(err);
+                                    }
+                                    else
+                                    {
+                                        console.log('File written successfully!')
+                                    }
+                                });
+                            }
+                        });
                     }
-                    else
-                    {
-                        console.log('File written successfully!')
-                    }
-                });
+                });   
             })
 }
 
