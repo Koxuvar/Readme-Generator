@@ -3,7 +3,7 @@ const lList = require('./licenseLocker');
 function renderLicenseBadge(license, gHubUserName, projectName)
 {
     let pNameShort = projectName.split(' ').join('_').trim();
-    return license != "none" ? `![GitHub](https://img.shields.io/github/${license}/${gHubUserName}/${pNameShort}?style=plastic)` : "";
+    return license != "none" ? `![GitHub](https://img.shields.io/github/license/${gHubUserName}/${pNameShort}?style=plastic)` : "";
 }
 
 function renderLicenseSection(license, gHubUserName, projectName)
@@ -23,7 +23,7 @@ function renderLicenseSection(license, gHubUserName, projectName)
 ## License
 
 Copyright (c) ${year} | ${gHubUserName} | All rights reserved.<br>
- Please be kind and change content if you wish to use this code.
+Please be kind and change content if you wish to use this code.
 
 
 <details>
