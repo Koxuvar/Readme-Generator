@@ -52,6 +52,7 @@ A walkthrough video showing this process can be found [here](https://www.youtube
  ## Questions
 
  For questions concerning this app contact me [here](mailto:connor@mmvdesigns.com)
+ 
  To see more of my work, check out my [Github Profile](http://www.github.com/Koxuvar)
 
  ## License
