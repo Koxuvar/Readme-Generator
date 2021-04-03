@@ -30,7 +30,7 @@ const prompts =
         name: 'testInstructions',
         type: 'input',
         message: 'Test Instructions:',
-        default: 'node test',
+        default: 'npm test',
     },
     {
         name: 'license',
